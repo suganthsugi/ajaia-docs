@@ -1,13 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { apiFetch } from "@/lib/api-client";
 import type { UserDTO } from "@/lib/session";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [users, setUsers] = useState<UserDTO[] | null>(null);
   const [pending, setPending] = useState<string | null>(null);
 
@@ -21,8 +19,9 @@ export default function LoginPage() {
     setPending(email);
     try {
       await apiFetch("/api/session", { method: "POST", body: { email } });
-      router.push("/");
-      router.refresh();
+      // Full load, not router.push: the header's <Link href="/"> prefetched "/" while signed out,
+      // and the client router would replay that cached redirect back to /login.
+      window.location.href = "/";
     } catch {
       setPending(null);
     }
