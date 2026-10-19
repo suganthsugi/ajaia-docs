@@ -55,7 +55,7 @@ The owner is a column on the document, not a share row, so every document has ex
 - **Validate content against the editor schema on every save.** `Node.fromJSON(schema, json).check()` rejects content the editor couldn't display (`400 INVALID_CONTENT`), and a 1 MB cap stops oversized writes (`413`).
 - **Debounced full-document saves (800 ms).** At most one save is in flight; edits made during a save trigger exactly one follow-up. That's simple and has no out-of-order writes from one tab. If a save comes back 403 or 404 (access revoked, or the doc was deleted), the editor says so and stops retrying.
 - **404 for "no access", 403 for "not allowed".** Someone without access can't tell a private document from a missing one. Someone who can see the document but lacks the right role gets a clear 403.
-- **A 4 MB import limit.** Vercel rejects bodies over 4.5 MB before our code runs, so a 5 MB limit would have been false on the live demo. The limit is checked in the file picker, in the route (from `Content-Length`), and in `convertFile()`.
+- **A 4 MB import limit.** Serverless hosts such as Vercel reject bodies over 4.5 MB before app code runs, so 4 MB keeps the stated limit true if the app is hosted there. The limit is checked in the file picker, in the route (from `Content-Length`), and in `convertFile()`.
 - **Type checks look at the bytes, not just the name.** A `.docx` must start with the ZIP signature; `.txt` / `.md` must be valid UTF-8 with no NUL bytes.
 - **The seed is idempotent and uses fixed ids.** Restarting Docker never duplicates data, and `docker compose down -v` resets to a known state.
 - **The Docker image is a standalone Next.js server.** The Prisma CLI lives in its own install inside the image, so `migrate deploy` runs at startup without shipping all dev dependencies. Compose always points the app at its own `db` service, so a local `.env` meant for `npm run dev` can't leak into the container.
@@ -69,6 +69,7 @@ The owner is a column on the document, not a share row, so every document has ex
 | Changing a share's role in place | Revoke and share again covers it; saves one endpoint and UI state |
 | Headings 3–6, links, code, quotes, tables, images | The toolbar can't produce them, so the schema leaves them out and import drops them to plain text |
 | Playwright end-to-end test | Dropped when tests were scoped to the two riskiest pieces of logic (see below) |
+| Hosted demo (Vercel + Neon), walkthrough video, screenshots | Changed plan: reviewers run the app with `docker compose up --build`. The repo stays deploy-ready (`vercel-build` script, pooled/direct database URLs) |
 
 ## Tests, and why so few
 
