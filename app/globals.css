@@ -128,3 +128,31 @@
     @apply font-sans;
   }
 }
+/* Rich-text content rendered by TipTap (preflight removes default heading and list styles). */
+.tiptap-content > * + * {
+  margin-top: 0.75em;
+}
+.tiptap-content h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.tiptap-content h2 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.tiptap-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+.tiptap-content ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
+.tiptap-content li > p {
+  margin: 0.125em 0;
+}
+.tiptap-content p {
+  line-height: 1.65;
+}
