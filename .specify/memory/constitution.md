@@ -1,3 +1,17 @@
+<!--
+Sync Impact Report
+- Version change: 1.0.0 → 1.0.1 (PATCH: clarifications, no principle added/removed/redefined)
+- Modified principles:
+  - III. Single Access-Control Policy: session rule now exempts the public sign-in endpoints
+    (list seeded users, sign in); 403 vs 404 distinction made explicit
+  - IV. Validated Input, Explicit Errors, Safe Storage: import size limit 5 MB → 4 MB to stay
+    below the hosting platform's 4.5 MB request-body limit
+- Added sections: none
+- Removed sections: none
+- Dependent artifacts: specs/001-collaborative-doc-editor/spec.md still says 5 MB
+  (US3 independent test, US3 scenarios 1 and 6, FR-015, FR-018) ⚠ pending
+- Deferred TODOs: none
+-->
 # Ajaia Docs Constitution
 
 ## Core Principles
@@ -40,8 +54,11 @@ reviewers must be able to test without setup friction.
 - Only the owner may share, revoke, rename or delete. Editors may edit content. Viewers may
   only read, and the UI MUST render a read-only editor for them.
 - A document the caller cannot access MUST return 404, identical to a missing document, so
-  existence is not leaked. Unauthenticated requests MUST return 401.
-- Every API route MUST resolve the current user from the httpOnly signed session cookie.
+  existence is not leaked. A caller who has access but whose role does not allow the action
+  MUST get 403. Unauthenticated requests MUST return 401.
+- Every API route MUST resolve the current user from the httpOnly signed session cookie, except
+  the public sign-in endpoints (listing the seeded users and signing in), which cannot require
+  a session.
 
 Rationale: sharing is a graded core capability; one testable policy is easy to verify and to
 explain in a paragraph.
@@ -54,9 +71,10 @@ explain in a paragraph.
   failure is never acceptable.
 - Document content MUST be stored as TipTap JSON, never as raw HTML, so formatting round-trips
   exactly and stored HTML is never rendered.
-- File import accepts only `.txt`, `.md` and `.docx` up to 5 MB. Wrong type, oversized or
-  corrupt files MUST be rejected with a clear 4xx error and MUST NOT create an empty document.
-  Supported types MUST be stated in the UI and README.
+- File import accepts only `.txt`, `.md` and `.docx` up to 4 MB, which stays below Vercel's
+  4.5 MB request-body limit so the stated limit holds on the live build. Wrong type, oversized
+  or corrupt files MUST be rejected with a clear 4xx error and MUST NOT create an empty
+  document. Supported types and the size limit MUST be stated in the UI and README.
 
 Rationale: the brief requires basic validation and error handling; JSON storage removes an XSS
 surface and preserves structure.
@@ -125,4 +143,4 @@ and verbal communication.
   or materially expanded guidance, PATCH for wording and clarifications.
 - Compliance is reviewed at each feature's plan and before final submission.
 
-**Version**: 1.0.0 | **Ratified**: 2026-10-19 | **Last Amended**: 2026-10-19
+**Version**: 1.0.1 | **Ratified**: 2026-10-19 | **Last Amended**: 2026-10-19
