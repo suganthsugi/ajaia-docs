@@ -45,3 +45,4 @@ How AI tools were used to build Ajaia Docs, and how their output was checked.
 - US4: Dockerfile, entrypoint, compose fixes (fixed db URL, `APP_PORT`).
 - Polish: error fallbacks, README, ARCHITECTURE, this log.
 - Change of plan (my decision): no hosted Vercel demo, no walkthrough video or screenshots. The deploy and live-check tasks (T019, T034, T059) and T060 were dropped; Docker is the way to run the app, and the docs were updated so they no longer promise a live URL.
+- Later the same day (my decision): hosted after all, but not on Vercel. The Docker Compose stack runs on my VPS behind nginx with a Let's Encrypt certificate at <https://ajaia-docs.suganth.me>; a server-only compose override binds the app to localhost and keeps Postgres internal. Sign-in for all three seeded users was checked on the live URL.

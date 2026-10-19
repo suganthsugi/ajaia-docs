@@ -28,7 +28,7 @@ npm test                         # Vitest: access matrix + converters
 
 ### Live demo
 
-The Vercel URL from `SUBMISSION.md`. Seeded users: alice@ajaia.test, bob@ajaia.test, carol@ajaia.test.
+<https://ajaia-docs.suganth.me> (the Docker stack on a VPS behind nginx). Seeded users: alice@ajaia.test, bob@ajaia.test, carol@ajaia.test.
 
 ## Validation checklist
 

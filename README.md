@@ -2,7 +2,7 @@
 
 A lightweight collaborative document editor: sign in as a test user, write rich-text documents that save automatically, import `.txt` / `.md` / `.docx` files, and share documents with teammates as Viewer or Editor.
 
-- **Try it:** there is no hosted demo; run it locally with one command (see [Run with Docker](#run-with-docker)).
+- **Try it:** live at <https://ajaia-docs.suganth.me>, or run it locally with one command (see [Run with Docker](#run-with-docker)).
 - **Stack:** Next.js 15 (App Router) · TypeScript · TipTap 3 · Tailwind + shadcn/ui · Prisma 6 + Postgres · Vitest
 
 ## Test accounts
@@ -91,7 +91,7 @@ Two Vitest files, logic only (no database, no browser):
 
 **What's incomplete:**
 
-- There is no hosted demo, walkthrough video or screenshots; by decision, the app is reviewed by running it with Docker.
+- There is no walkthrough video or screenshots, by decision. The live demo runs the same Docker Compose stack on a VPS behind nginx (HTTPS via Let's Encrypt), not on Vercel + Neon.
 - The "unsaved changes" browser warning is implemented but was not checked with automation, because the native dialog blocks the test browser.
 
 **Next 2–4 hours:**
@@ -99,6 +99,5 @@ Two Vitest files, logic only (no database, no browser):
 1. One Playwright test of the happy path: owner creates and shares; recipient sees it under "Shared with me" and edits.
 2. Let owners change a share's role in place.
 3. Show "someone else changed this document" when a save would overwrite a newer version, instead of last-write-wins.
-4. Host it (the repo is already set up for Vercel + Neon: `vercel-build` script, pooled/direct database URLs).
 
 More detail on design decisions: [`ARCHITECTURE.md`](ARCHITECTURE.md). How AI was used: [`AI_WORKFLOW.md`](AI_WORKFLOW.md).

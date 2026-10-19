@@ -69,7 +69,7 @@ The owner is a column on the document, not a share row, so every document has ex
 | Changing a share's role in place | Revoke and share again covers it; saves one endpoint and UI state |
 | Headings 3–6, links, code, quotes, tables, images | The toolbar can't produce them, so the schema leaves them out and import drops them to plain text |
 | Playwright end-to-end test | Dropped when tests were scoped to the two riskiest pieces of logic (see below) |
-| Hosted demo (Vercel + Neon), walkthrough video, screenshots | Changed plan: reviewers run the app with `docker compose up --build`. The repo stays deploy-ready (`vercel-build` script, pooled/direct database URLs) |
+| Vercel + Neon hosting, walkthrough video, screenshots | Changed plan: the live demo at <https://ajaia-docs.suganth.me> runs the same `docker compose` stack on a VPS behind nginx, so there is one run path. The repo stays Vercel-ready (`vercel-build` script, pooled/direct database URLs) |
 
 ## Tests, and why so few
 

@@ -2,6 +2,10 @@
 
 ## How to review
 
+**Live demo:** <https://ajaia-docs.suganth.me>
+
+Or run it locally:
+
 ```bash
 docker compose up --build        # then open http://localhost:3000
 ```
@@ -31,10 +35,10 @@ No `.env` file or accounts are needed. Sign in by clicking a test user:
 
 ## Not included (by decision)
 
-- **Live demo URL:** the app isn't hosted; it's reviewed with Docker. The repo is ready for Vercel + Neon if hosting is wanted later.
 - **Walkthrough video and screenshots:** not part of this submission.
 
 ## Checked before submitting
 
 - `npm test` (31 tests), `npx tsc --noEmit`, `eslint` and `npm run build` pass.
 - `docker compose down -v && docker compose up --build` from a clean state: migrations and seed run, all three users can sign in and see their documents, the editor and import work, a restart doesn't duplicate data, and `down -v` resets to the seed.
+- Live demo: all three users can sign in at <https://ajaia-docs.suganth.me> and reach their dashboard; HTTP redirects to HTTPS.
