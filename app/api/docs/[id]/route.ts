@@ -29,3 +29,9 @@ export const PATCH = route<Params>(async ({ req, user, params }) => {
   });
   return NextResponse.json({ doc: { ...doc, updatedAt: doc.updatedAt.toISOString() } });
 });
+
+export const DELETE = route<Params>(async ({ user, params }) => {
+  await requireAccess(user.id, params.id, "delete");
+  await db.document.delete({ where: { id: params.id } }); // shares cascade
+  return new NextResponse(null, { status: 204 });
+});
