@@ -23,8 +23,9 @@ services:
       db:
         condition: service_healthy
     environment:
-      DATABASE_URL: ${DATABASE_URL:-postgresql://ajaia:ajaia@db:5432/ajaia}
-      DIRECT_URL: ${DIRECT_URL:-postgresql://ajaia:ajaia@db:5432/ajaia}
+      # Always the compose db service (a local .env meant for `npm run dev` must not leak in here).
+      DATABASE_URL: postgresql://ajaia:ajaia@db:5432/ajaia
+      DIRECT_URL: postgresql://ajaia:ajaia@db:5432/ajaia
       SESSION_SECRET: ${SESSION_SECRET:-local-dev-secret-change-me-32-chars-min}
 
 volumes:
