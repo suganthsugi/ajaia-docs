@@ -2,6 +2,7 @@
 
 A lightweight collaborative document editor: sign in as a test user, write rich-text documents that save automatically, import `.txt` / `.md` / `.docx` files, and share documents with teammates as Viewer or Editor.
 
+- **Watch it:** [walkthrough video](https://youtu.be/BqXpvwDZk0k).
 - **Try it:** live at <https://ajaia-docs.suganth.me>, or run it locally with one command (see [Run with Docker](#run-with-docker)).
 - **Stack:** Next.js 15 (App Router) · TypeScript · TipTap 3 · Tailwind + shadcn/ui · Prisma 6 + Postgres · Vitest
 
@@ -91,7 +92,7 @@ Two Vitest files, logic only (no database, no browser):
 
 **What's incomplete:**
 
-- There is no walkthrough video or screenshots, by decision. The live demo runs the same Docker Compose stack on a VPS behind nginx (HTTPS via Let's Encrypt), not on Vercel + Neon.
+- There are no screenshots, by decision (the [walkthrough video](https://youtu.be/BqXpvwDZk0k) covers the sharing flow). The live demo runs the same Docker Compose stack on a VPS behind nginx (HTTPS via Let's Encrypt), not on Vercel + Neon.
 - The "unsaved changes" browser warning is implemented but was not checked with automation, because the native dialog blocks the test browser.
 
 **Next 2–4 hours:**

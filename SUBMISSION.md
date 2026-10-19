@@ -4,6 +4,8 @@
 
 **Live demo:** <https://ajaia-docs.suganth.me>
 
+**Walkthrough video:** <https://youtu.be/BqXpvwDZk0k>
+
 Or run it locally:
 
 ```bash
@@ -31,11 +33,12 @@ No `.env` file or accounts are needed. Sign in by clicking a test user:
 | Docker | [`Dockerfile`](Dockerfile), [`docker-compose.yml`](docker-compose.yml), [`.dockerignore`](.dockerignore), [`docker-entrypoint.sh`](docker-entrypoint.sh) |
 | Environment template | [`.env.example`](.env.example) |
 | Automated tests | `tests/access.test.ts`, `tests/convert.test.ts` (`npm test`) |
+| Walkthrough video | <https://youtu.be/BqXpvwDZk0k> (also in [`VIDEO_URL.txt`](VIDEO_URL.txt)) |
 | Spec, plan and task list | [`specs/001-collaborative-doc-editor/`](specs/001-collaborative-doc-editor/) |
 
 ## Not included (by decision)
 
-- **Walkthrough video and screenshots:** not part of this submission.
+- **Screenshots:** not part of this submission; the walkthrough video covers the sharing flow.
 
 ## Checked before submitting
 
