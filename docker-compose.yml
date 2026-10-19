@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ajaia
+      POSTGRES_PASSWORD: ajaia
+      POSTGRES_DB: ajaia
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ajaia -d ajaia"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql://ajaia:ajaia@db:5432/ajaia}
+      DIRECT_URL: ${DIRECT_URL:-postgresql://ajaia:ajaia@db:5432/ajaia}
+      SESSION_SECRET: ${SESSION_SECRET:-local-dev-secret-change-me-32-chars-min}
+
+volumes:
+  pgdata:
