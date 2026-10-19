@@ -57,7 +57,7 @@ Every task here is tracked in Jira project [AD](https://suganthsugi.atlassian.ne
 - [X] T002 Install runtime deps in `package.json`: `@prisma/client@6 prisma@6 zod jose mammoth marked sonner` and TipTap 3 with all `@tiptap/*` packages on the same version: `@tiptap/react@^3 @tiptap/pm@^3 @tiptap/starter-kit@^3 @tiptap/html@^3` (no `@tiptap/extension-underline` — StarterKit 3 bundles Underline); dev deps: `vitest tsx @types/node`; add scripts `"test": "vitest run"`, `"db:seed": "tsx prisma/seed.ts"`, `"vercel-build": "prisma generate && prisma migrate deploy && next build"`, `"postinstall": "prisma generate"`, and `"prisma": { "seed": "tsx prisma/seed.ts" }`
 - [X] T003 [P] Initialise shadcn/ui (`npx shadcn@latest init`) and add components `button tabs dialog input select badge dropdown-menu sonner` into `components/ui/`
 - [X] T004 [P] Create `vitest.config.ts` (node environment, `@` alias to repo root, include `tests/**/*.test.ts`)
-- [ ] T005 [P] Create `.env.example` documenting `DATABASE_URL` (pooled), `DIRECT_URL` (unpooled, migrations), `SESSION_SECRET` (≥32 chars) with local Docker defaults `postgresql://ajaia:ajaia@localhost:5432/ajaia`; ensure `.env` is in `.gitignore`
+- [X] T005 [P] Create `.env.example` documenting `DATABASE_URL` (pooled), `DIRECT_URL` (unpooled, migrations), `SESSION_SECRET` (≥32 chars) with local Docker defaults `postgresql://ajaia:ajaia@localhost:5432/ajaia`; ensure `.env` is in `.gitignore`
 - [ ] T006 [P] Create `AI_WORKFLOW.md` with headings "Tools used", "Where AI sped things up", "AI output changed or rejected", "How correctness was verified", and a dated running-log section (constitution VI — update it during every later phase)
 
 ---
