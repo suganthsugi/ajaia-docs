@@ -58,7 +58,7 @@ Every task here is tracked in Jira project [AD](https://suganthsugi.atlassian.ne
 - [X] T003 [P] Initialise shadcn/ui (`npx shadcn@latest init`) and add components `button tabs dialog input select badge dropdown-menu sonner` into `components/ui/`
 - [X] T004 [P] Create `vitest.config.ts` (node environment, `@` alias to repo root, include `tests/**/*.test.ts`)
 - [X] T005 [P] Create `.env.example` documenting `DATABASE_URL` (pooled), `DIRECT_URL` (unpooled, migrations), `SESSION_SECRET` (≥32 chars) with local Docker defaults `postgresql://ajaia:ajaia@localhost:5432/ajaia`; ensure `.env` is in `.gitignore`
-- [ ] T006 [P] Create `AI_WORKFLOW.md` with headings "Tools used", "Where AI sped things up", "AI output changed or rejected", "How correctness was verified", and a dated running-log section (constitution VI — update it during every later phase)
+- [X] T006 [P] Create `AI_WORKFLOW.md` with headings "Tools used", "Where AI sped things up", "AI output changed or rejected", "How correctness was verified", and a dated running-log section (constitution VI — update it during every later phase)
 
 ---
 
