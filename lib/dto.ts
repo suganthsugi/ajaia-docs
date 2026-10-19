@@ -1,9 +1,10 @@
-import type { Document, User } from "@prisma/client";
+import type { Document, DocumentShare, User } from "@prisma/client";
 import type { Role } from "@/lib/access";
 import type { UserDTO } from "@/lib/session";
 
 export type DocSummary = { id: string; title: string; role: Role; owner: UserDTO; updatedAt: string };
 export type DocDetail = DocSummary & { content: unknown };
+export type ShareDTO = { user: UserDTO; role: "viewer" | "editor"; createdAt: string };
 
 export const userDTO = (user: User | UserDTO): UserDTO => ({ id: user.id, email: user.email, name: user.name });
 
@@ -13,4 +14,12 @@ export function docSummary(doc: Document & { owner: User | UserDTO }, role: Role
 
 export function docDetail(doc: Document & { owner: User | UserDTO }, role: Role): DocDetail {
   return { ...docSummary(doc, role), content: doc.content };
+}
+
+export function shareDTO(share: DocumentShare & { user: User }): ShareDTO {
+  return {
+    user: userDTO(share.user),
+    role: share.role === "EDITOR" ? "editor" : "viewer",
+    createdAt: share.createdAt.toISOString(),
+  };
 }
