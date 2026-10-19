@@ -122,7 +122,7 @@ Every task here is tracked in Jira project [AD](https://suganthsugi.atlassian.ne
 
 ### Tests for User Story 2
 
-- [ ] T035 [P] [US2] Write `tests/access.test.ts`: `it.each` table over `can(role, action)` for roles `owner | editor | viewer | null` × actions `read | edit | rename | share | revoke | delete` asserting exactly the data-model.md matrix (owner all true; editor read+edit; viewer read; null none); plus `roleFor` cases: owner id → `"owner"`, share `EDITOR` → `"editor"`, share `VIEWER` → `"viewer"`, no share (revoked) → `null`. Run `npm test` (FR-034, SC-005)
+- [X] T035 [P] [US2] Write `tests/access.test.ts`: `it.each` table over `can(role, action)` for roles `owner | editor | viewer | null` × actions `read | edit | rename | share | revoke | delete` asserting exactly the data-model.md matrix (owner all true; editor read+edit; viewer read; null none); plus `roleFor` cases: owner id → `"owner"`, share `EDITOR` → `"editor"`, share `VIEWER` → `"viewer"`, no share (revoked) → `null`. Run `npm test` (FR-034, SC-005)
 
 ### Implementation for User Story 2
 
