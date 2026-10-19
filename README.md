@@ -2,7 +2,7 @@
 
 A lightweight collaborative document editor: sign in as a test user, write rich-text documents that save automatically, import `.txt` / `.md` / `.docx` files, and share documents with teammates as Viewer or Editor.
 
-- **Live demo:** _not deployed yet — the Vercel URL goes here once it is (see `SUBMISSION.md`)_
+- **Try it:** there is no hosted demo; run it locally with one command (see [Run with Docker](#run-with-docker)).
 - **Stack:** Next.js 15 (App Router) · TypeScript · TipTap 3 · Tailwind + shadcn/ui · Prisma 6 + Postgres · Vitest
 
 ## Test accounts
@@ -65,7 +65,7 @@ Supported: **`.txt`, `.md`, `.docx` — up to 4 MB.** Each import becomes a new 
 - `.md`: headings (H1/H2), bold, italic, bulleted and numbered lists are kept.
 - `.docx`: headings, bold, italic, underline and lists are kept; other styling becomes plain paragraphs.
 
-The limit is 4 MB rather than 5 MB because Vercel rejects request bodies over 4.5 MB before the app sees them; 4 MB keeps the stated limit true on the live demo. Wrong types, oversized files and files whose contents don't match their extension (e.g. a renamed `.txt` called `.docx`) are rejected with a message, and no empty document is created.
+The limit is 4 MB rather than 5 MB so it stays below the 4.5 MB request-body limit of serverless hosts such as Vercel, which reject larger uploads before the app sees them; the stated limit would hold if the app were hosted there. Wrong types, oversized files and files whose contents don't match their extension (e.g. a renamed `.txt` called `.docx`) are rejected with a message, and no empty document is created.
 
 ## Tests
 
@@ -91,15 +91,14 @@ Two Vitest files, logic only (no database, no browser):
 
 **What's incomplete:**
 
-- The live Vercel + Neon deployment hasn't been set up yet, so the quickstart checklist hasn't been run on a live URL.
-- The walkthrough video and the sharing-flow screenshots aren't recorded yet.
+- There is no hosted demo, walkthrough video or screenshots; by decision, the app is reviewed by running it with Docker.
 - The "unsaved changes" browser warning is implemented but was not checked with automation, because the native dialog blocks the test browser.
 
 **Next 2–4 hours:**
 
-1. Deploy to Vercel + Neon and run the full quickstart checklist with all three accounts on the live URL.
-2. One Playwright test of the happy path: owner creates and shares; recipient sees it under "Shared with me" and edits.
-3. Let owners change a share's role in place.
-4. Show "someone else changed this document" when a save would overwrite a newer version, instead of last-write-wins.
+1. One Playwright test of the happy path: owner creates and shares; recipient sees it under "Shared with me" and edits.
+2. Let owners change a share's role in place.
+3. Show "someone else changed this document" when a save would overwrite a newer version, instead of last-write-wins.
+4. Host it (the repo is already set up for Vercel + Neon: `vercel-build` script, pooled/direct database URLs).
 
 More detail on design decisions: [`ARCHITECTURE.md`](ARCHITECTURE.md). How AI was used: [`AI_WORKFLOW.md`](AI_WORKFLOW.md).
