@@ -145,7 +145,7 @@ Every task here is tracked in Jira project [AD](https://suganthsugi.atlassian.ne
 
 ### Tests for User Story 3
 
-- [ ] T042 [P] [US3] Create fixture `tests/fixtures/bold.docx`: a minimal real Word file containing a paragraph with one **bold** word (make it once in Word/LibreOffice/Google Docs and commit it)
+- [X] T042 [P] [US3] Create fixture `tests/fixtures/bold.docx`: a minimal real Word file containing a paragraph with one **bold** word (make it once in Word/LibreOffice/Google Docs and commit it)
 - [ ] T043 [P] [US3] Write `tests/convert.test.ts`: (1) `convertFile("notes.md", Buffer.from("# Title\n\n- a\n- b"))` → content has a `heading` node with `attrs.level = 1` and a `bulletList` with 2 `listItem`s; (2) `bold.docx` fixture → some text node has a mark `{ type: "bold" }`; (3) `convertFile("x.pdf", …)` throws `UnsupportedFileError`; also title is `"notes"` for `notes.md` (FR-034)
 
 ### Implementation for User Story 3
