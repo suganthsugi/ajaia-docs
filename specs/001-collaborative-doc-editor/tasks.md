@@ -28,6 +28,25 @@ description: "Task list for Ajaia Docs — lightweight collaborative document ed
 - Import: `.txt`, `.md`, `.docx`; `MAX_IMPORT_BYTES = 4 * 1024 * 1024` (research R5)
 - Autosave debounce: 800 ms. Error body: `{ error: { code, message } }`. No access → 404 `NOT_FOUND`; has access but role not allowed → 403 `FORBIDDEN`; no session → 401 `UNAUTHENTICATED`
 
+## Jira tracking (project AD)
+
+Every task here is tracked in Jira project [AD](https://suganthsugi.atlassian.net/jira/software/projects/AD/boards/35) as feature-level work, not one Jira issue per technical task. Board 35 has no sprints, so each sprint is an Epic → Task → Sub-task. When a task below is finished, move the matching Jira sub-task forward; close the Jira task when all its sub-tasks are done.
+
+| Sprint (Epic) | Jira task | tasks.md |
+|---|---|---|
+| AD-1 Sprint 1 — Skeleton live | AD-5 Sign in as a test user (AD-17–AD-20) | T013, T015, T020–T023 |
+| | AD-6 Run the whole app with one command (AD-21–AD-23) | T005, T017, T049–T053 |
+| | AD-7 Put the live demo online (AD-24, AD-25) | T001–T012, T014, T016, T018, T019 |
+| AD-2 Sprint 2 — Write documents | AD-8 See my documents on the dashboard (AD-26–AD-28) | T024, T026, T027 |
+| | AD-9 Write and format a document (AD-29–AD-31) | T025, T028, T031–T033 |
+| | AD-10 Never lose my work (AD-32–AD-35) | T029, T030, T034 |
+| AD-3 Sprint 3 — Share and import | AD-11 Share a document with a teammate (AD-36–AD-39) | T036–T040 |
+| | AD-12 Work on documents shared with me (AD-40–AD-43) | T040, T041 |
+| | AD-13 Turn a file into a document (AD-44–AD-48) | T044–T048 |
+| AD-4 Sprint 4 — Polish and submit | AD-14 Clear messages when something goes wrong (AD-49–AD-51) | T054 |
+| | AD-15 Automatic checks for sharing rules and file import (AD-52–AD-54) | T035, T042, T043, T058 |
+| | AD-16 Submission package (AD-55–AD-58) | T006, T055–T057, T059–T061 |
+
 ---
 
 ## Phase 1: Setup (Shared Infrastructure)
