@@ -17,7 +17,7 @@ How AI tools were used to build Ajaia Docs, and how their output was checked.
 
 ## AI output changed or rejected
 
-- **Import limit 5 MB → 4 MB.** The first plan said 5 MB. Checking Vercel's 4.5 MB request-body limit showed that would be false on the live demo, so the constitution, spec and code were changed to 4 MB.
+- **Import limit 5 MB → 4 MB.** The first plan said 5 MB. Checking Vercel's 4.5 MB request-body limit showed that would be false on a hosted build, so the constitution, spec and code were changed to 4 MB.
 - **Scaffolding.** `create-next-app` refused the non-empty repo, so it was generated in a temp folder and copied in. `shadcn init` stalled on interactive prompts twice; `components.json` was written by hand and components added with `shadcn add`. The current shadcn CLI imports `cn` from its new `cn` package instead of `clsx` + `tailwind-merge`; I checked that package (it's shadcn's own) and kept it. A stray `@base-ui/react` dependency from the failed init was removed.
 - **Dependency versions.** `vitest@5` needs `@types/node` ≥ 22, so the types moved to 22 (the runtime is still Node 20). npm 11 blocks install scripts by default, so Prisma's and esbuild's were approved explicitly (`allowScripts` in `package.json`).
 - **Session helpers split.** The plan put everything in `lib/session.ts`, but middleware runs on the Edge runtime and can't import Prisma. The token code moved to an Edge-safe `lib/session-token.ts`.
@@ -44,3 +44,4 @@ How AI tools were used to build Ajaia Docs, and how their output was checked.
 - US3: `.docx` fixture, converter tests written before the converters, `txt` / `md` / `docx` converters, import route and button. 31 tests green; all import error paths checked.
 - US4: Dockerfile, entrypoint, compose fixes (fixed db URL, `APP_PORT`).
 - Polish: error fallbacks, README, ARCHITECTURE, this log.
+- Change of plan (my decision): no hosted Vercel demo, no walkthrough video or screenshots. The deploy and live-check tasks (T019, T034, T059) and T060 were dropped; Docker is the way to run the app, and the docs were updated so they no longer promise a live URL.
