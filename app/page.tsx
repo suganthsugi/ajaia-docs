@@ -4,6 +4,7 @@ import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { DocList } from "@/components/dashboard/DocList";
+import { ImportButton } from "@/components/dashboard/ImportButton";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { apiFetch } from "@/lib/api-client";
@@ -63,7 +64,7 @@ export default function Dashboard() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-2xl font-semibold">Documents</h1>
         <div className="flex items-start gap-2">
-          {/* Import button slot */}
+          <ImportButton />
           <Button onClick={createDoc} disabled={creating}>
             <Plus /> {creating ? "Creating…" : "New document"}
           </Button>
