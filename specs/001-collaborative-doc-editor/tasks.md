@@ -191,7 +191,7 @@ Every task here is tracked in Jira project [AD](https://suganthsugi.atlassian.ne
 - [X] T058 Run `npm test`, `npm run build` and `npx tsc --noEmit`; fix failures
 - [X] ~~T059 Redeploy to Vercel and run the whole quickstart.md checklist on the live URL with all three seeded accounts (SC-010)~~ — **Dropped 2026-10-19 (user decision):** no hosted deploy; the quickstart checklist was run locally and on the Docker build instead
 - [X] ~~T060 Capture screenshots or a GIF of the sharing flow into `docs/screenshots/`; record the 3–5 minute Loom walkthrough and put the link in `VIDEO_URL.txt`~~ — **Dropped 2026-10-19 (user decision):** screenshots and walkthrough video are not part of the submission
-- [ ] T061 Write `SUBMISSION.md` listing exactly what is included (repo, live URL, video, docs, test accounts); final `docker compose down -v && docker compose up --build` check
+- [X] T061 Write `SUBMISSION.md` listing exactly what is included (repo, live URL, video, docs, test accounts); final `docker compose down -v && docker compose up --build` check
 
 ---
 
