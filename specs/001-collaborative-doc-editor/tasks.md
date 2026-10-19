@@ -188,7 +188,7 @@ Every task here is tracked in Jira project [AD](https://suganthsugi.atlassian.ne
 - [ ] T055 [P] Write `README.md`: what it is, live URL, seeded accounts and what each sees, "Run with Docker" (prerequisites, `docker compose up --build`, URL, reset with `docker compose down -v`, troubleshooting for ports 3000/5432 in use), local Node setup, env vars (link `.env.example`), supported file types ".txt, .md, .docx up to 4 MB" and the 4.5 MB hosting reason, `npm test`, out of scope list, "What works / what's incomplete / next 2–4 hours" (FR-032)
 - [X] T056 [P] Write `ARCHITECTURE.md`: what was prioritised and why, the architecture (one Next.js app, thin routes → `lib/http.ts` → `lib/access.ts` → Prisma), data model, permission matrix, key decisions (JSON not HTML, debounced full saves, one policy, 404 for no access, 4 MB limit), cuts with reasons, tests chosen and why minimal (FR-033)
 - [X] T057 [P] Finish `AI_WORKFLOW.md` from the running log: concrete accepted, changed and rejected AI suggestions and how each was verified (constitution VI)
-- [ ] T058 Run `npm test`, `npm run build` and `npx tsc --noEmit`; fix failures
+- [X] T058 Run `npm test`, `npm run build` and `npx tsc --noEmit`; fix failures
 - [ ] T059 Redeploy to Vercel and run the whole quickstart.md checklist on the live URL with all three seeded accounts (SC-010)
 - [ ] T060 Capture screenshots or a GIF of the sharing flow into `docs/screenshots/`; record the 3–5 minute Loom walkthrough and put the link in `VIDEO_URL.txt`
 - [ ] T061 Write `SUBMISSION.md` listing exactly what is included (repo, live URL, video, docs, test accounts); final `docker compose down -v && docker compose up --build` check
