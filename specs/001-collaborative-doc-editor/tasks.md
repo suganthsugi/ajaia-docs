@@ -174,7 +174,7 @@ Every task here is tracked in Jira project [AD](https://suganthsugi.atlassian.ne
 - [X] T050 [P] [US4] Create `.dockerignore` excluding `node_modules`, `.next`, `.git`, `.env*` (but not `.env.example`), `specs`, `.specify`, `.claude`, `tests`
 - [X] T051 [US4] Create multi-stage `Dockerfile` (research R9): `deps` (`node:20-alpine`, `apk add --no-cache openssl libc6-compat`, `npm ci`); `build` (copy source, `npx prisma generate`, `npm run build`, compile seed with `npx tsc prisma/seed.ts --outDir prisma/dist --module commonjs --target es2022 --esModuleInterop --skipLibCheck`); `runner` (`node:20-alpine`, `apk add openssl`, `NODE_ENV=production`, copy `.next/standalone`, `.next/static`, `public`, `prisma/schema.prisma`, `prisma/migrations`, `prisma/dist`, and `node_modules/prisma`, `node_modules/.prisma`, `node_modules/@prisma`; non-root user; `EXPOSE 3000`; `ENTRYPOINT ["./docker-entrypoint.sh"]`)
 - [X] T052 [US4] Create `docker-entrypoint.sh` (`#!/bin/sh`, `set -e`, LF line endings, executable): `node node_modules/prisma/build/index.js migrate deploy` → `node prisma/dist/seed.js` → `exec node server.js`; add `*.sh text eol=lf` to `.gitattributes`
-- [ ] T053 [US4] Run `docker compose down -v && docker compose up --build` from a clean state; sign in as each seeded user; restart once to confirm no duplicates; `down -v` + `up` to confirm reset (FR-028–FR-030, SC-008)
+- [X] T053 [US4] Run `docker compose down -v && docker compose up --build` from a clean state; sign in as each seeded user; restart once to confirm no duplicates; `down -v` + `up` to confirm reset (FR-028–FR-030, SC-008)
 
 **Checkpoint**: All four stories work independently
 
